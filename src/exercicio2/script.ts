@@ -58,3 +58,5 @@ const deleteItemById = (id: number): void => {
 // Teste
 deleteItemById(4);
 console.log(lista);
+
+// ====================== RESULTADO NO HTML?? ==================
