@@ -15,9 +15,19 @@ let lista: Item[] = [
 
 // ========================== RESULTADO VIA CONSOLE ========================
 
-//Função que retorna o nome do ID passado
+// Função que retorna o nome do ID passado
 const getNameById = (id: number): string | undefined => {
-    return lista.find(item => item.id === id)?.name;
+    // Checando se o ID é válido
+    if (id <= 0) {
+        console.log('ID inválido. O ID deve ser maior que zero.');
+        return undefined;
+    }
+    
+    // Procurando o item com o ID correspondente
+    const item = lista.find(item => item.id === id);
+
+    // Retornando o nome do item, ou undefined caso não encontrado
+    return item ? item.name : undefined;
 };
 // Teste
 console.log(getNameById(1));
@@ -25,7 +35,17 @@ console.log(getNameById(1));
 
 // Função que retorna a bio do ID passado
 const getBioById = (id: number): string | undefined => {
-    return lista.find(item => item.id === id)?.bio;
+    if (id <= 0) {
+        console.error('Erro: ID fornecido é inválido.');
+        return undefined;
+    }
+
+    const item = lista.find(item => item.id === id);
+    if (!item) {
+        console.warn(`Aviso: Item com ID ${id} não foi encontrado.`);
+    }
+
+    return item?.bio;
 };
 // Teste
 console.log(getBioById(2));
@@ -33,15 +53,21 @@ console.log(getBioById(2));
 
 // Função para atualizar bio e nome pelo ID passado
 const updateBioAndName = (id: number, newName: string, newBio: string): void => {
+    if (!newName || !newBio) {
+        console.error('Erro: Nome e biografia não podem estar vazios.');
+        return;
+    }
+
     const item = lista.find(item => item.id === id);
     if (item) {
         item.name = newName;
         item.bio = newBio;
+        console.log(`Item com ID ${id} atualizado com sucesso.`);
     } else {
-        console.log(`Item with ID ${id} not found.`);
-    };
+        console.error(`Erro: Item com ID ${id} não foi encontrado para atualização.`);
+    }
 };
-// teste
+// Teste
 updateBioAndName(3, "Agleice Sousa", "Este é um teste!");
 console.log(lista);
 
@@ -51,12 +77,13 @@ const deleteItemById = (id: number): void => {
     const index = lista.findIndex(item => item.id === id);
     if (index !== -1) {
         lista.splice(index, 1);
+        console.log(`Item com ID ${id} foi deletado com sucesso.`);
     } else {
-        console.log(`Item with ID ${id} not found.`);
-    };
+        console.error(`Erro: Item com ID ${id} não foi encontrado para deleção.`);
+    }
 };
 // Teste
 deleteItemById(4);
 console.log(lista);
 
-// ====================== RESULTADO NO HTML?? ==================
+// ====================== RESULTADO NO HTML?? ====================

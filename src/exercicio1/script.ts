@@ -1,32 +1,46 @@
-// Função que retorne a quantidade de vogais da palavra passada
-function contarVogais(palavra: string): number {
-    return Array.from(palavra).filter(letra => "aeiouAEIOU".includes(letra)).length;
-};
-// teste
-console.log(contarVogais("JavaScript"));
+// Função auxiliar para verificar se um elemento do DOM existe
+function getElementoPorId(id: string): HTMLElement | null {
+    return document.getElementById(id);
+}
 
+// Função que retorna a quantidade de vogais da palavra passada
+function contarVogais(palavra: string): number {
+    const vogais = "aeiouAEIOU";
+    return Array.from(palavra).filter(letra => vogais.includes(letra)).length;
+};
+
+// Teste simples no console
+console.log(contarVogais("JavaScript"));
 
 // Exemplo de uso com uma palavra recebida via parâmetros
 const palavra = "exemplo";
 const quantidadeVogais = contarVogais(palavra);
-//teste
+// Teste
 console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
 
 
-// Exemplo de uso com uma palavra recebida via input
+// Função para exibir resultado no HTML
 function mostrarResultado(): void {
-    const palavraInput = (document.getElementById('palavra') as HTMLInputElement)?.value.trim();
-    const resultadoDiv = document.getElementById('resultado');
+    const palavraInput = (getElementoPorId('palavra') as HTMLInputElement)?.value.trim();
+    const resultadoDiv = getElementoPorId('resultado');
 
-    // Verifica se o input e o div de resultado existem antes de continuar
-    if (palavraInput && resultadoDiv) {
-        const resultado = contarVogais(palavraInput);
-        resultadoDiv.innerText = `A palavra '${palavraInput}' tem ${resultado} vogais.`;
-        resultadoDiv.style.display = 'block';
-    } else if (resultadoDiv) {
-        resultadoDiv.innerText = 'Por favor, digite uma palavra.';
-        resultadoDiv.style.display = 'block';
+    if (!palavraInput) {
+        atualizarResultado(resultadoDiv, 'Por favor, digite uma palavra.');
+        return;
+    }
+
+    const resultado = contarVogais(palavraInput);
+    atualizarResultado(resultadoDiv, `A palavra '${palavraInput}' tem ${resultado} vogais.`);
+}
+
+// Função para atualizar o conteúdo e a visibilidade de um elemento HTML
+function atualizarResultado(elemento: HTMLElement | null, mensagem: string): void {
+    if (elemento) {
+        elemento.innerText = mensagem;
+        elemento.style.display = 'block';
     }
 }
+
 // Adiciona o evento de clique ao botão do formulário
-document.getElementById('contarBtn')?.addEventListener('click', mostrarResultado);
+const botaoContar = getElementoPorId('contarBtn');
+botaoContar?.addEventListener('click', mostrarResultado);
