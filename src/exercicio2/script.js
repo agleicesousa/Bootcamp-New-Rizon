@@ -14,3 +14,10 @@ var getNameById = function (id) {
 };
 // Teste
 console.log(getNameById(1));
+// Função que retorna a bio do ID passado
+var getBioById = function (id) {
+    var _a;
+    return (_a = lista.find(function (item) { return item.id === id; })) === null || _a === void 0 ? void 0 : _a.bio;
+};
+// Teste
+console.log(getBioById(2));

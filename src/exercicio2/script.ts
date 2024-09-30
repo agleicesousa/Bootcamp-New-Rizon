@@ -21,3 +21,10 @@ const getNameById = (id: number): string | undefined => {
 };
 // Teste
 console.log(getNameById(1));
+
+// Função que retorna a bio do ID passado
+const getBioById = (id: number): string | undefined => {
+    return lista.find(item => item.id === id)?.bio;
+};
+// Teste
+console.log(getBioById(2));
