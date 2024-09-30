@@ -11,3 +11,6 @@ const palavra = "exemplo";
 const quantidadeVogais = contarVogais(palavra);
 //teste
 console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
+
+
+// Exemplo de uso com uma palavra recebida via input
