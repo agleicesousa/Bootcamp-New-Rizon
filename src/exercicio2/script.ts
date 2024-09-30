@@ -44,30 +44,14 @@ function exibirNome(): void {
 };
 
 
-// Função para atualizar bio e nome pelo ID passado
-const updateBioAndName = (id: number, newName: string, newBio: string): void => {
-    const item = lista.find(item => item.id === id);
-    if (item) {
-        item.name = newName;
-        item.bio = newBio;
-    } else {
-        console.log(`Item with ID ${id} not found.`);
-    };
-};
-// teste
-updateBioAndName(3, "Agleice Sousa", "Este é um teste!");
-console.log(lista);
+// Função para renderizar a lista de biografias na página
+function renderLista(): void {
+    const listaUl = document.getElementById('listaPessoas') as HTMLUListElement;
+    listaUl.innerHTML = ''; // Limpa a lista anterior
 
-
-// Função para deletar item por ID
-const deleteItemById = (id: number): void => {
-    const index = lista.findIndex(item => item.id === id);
-    if (index !== -1) {
-        lista.splice(index, 1);
-    } else {
-        console.log(`Item with ID ${id} not found.`);
-    };
-};
-// Teste
-deleteItemById(4);
-console.log(lista);
+    lista.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = `${item.id}. ${item.name}: ${item.bio}`;
+        listaUl.appendChild(li);
+    });
+}
