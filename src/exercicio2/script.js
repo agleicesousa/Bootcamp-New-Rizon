@@ -21,3 +21,17 @@ var getBioById = function (id) {
 };
 // Teste
 console.log(getBioById(2));
+// Função para atualizar bio e nome pelo ID passado
+var updateBioAndName = function (id, newName, newBio) {
+    var item = lista.find(function (item) { return item.id === id; });
+    if (item) {
+        item.name = newName;
+        item.bio = newBio;
+    }
+    else {
+        console.log("Item with ID ".concat(id, " not found."));
+    }
+};
+// teste
+updateBioAndName(3, "Agleice Sousa", "Este é um teste!");
+console.log(lista);

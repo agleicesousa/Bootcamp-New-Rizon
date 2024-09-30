@@ -22,9 +22,25 @@ const getNameById = (id: number): string | undefined => {
 // Teste
 console.log(getNameById(1));
 
+
 // Função que retorna a bio do ID passado
 const getBioById = (id: number): string | undefined => {
     return lista.find(item => item.id === id)?.bio;
 };
 // Teste
 console.log(getBioById(2));
+
+
+// Função para atualizar bio e nome pelo ID passado
+const updateBioAndName = (id: number, newName: string, newBio: string): void => {
+    const item = lista.find(item => item.id === id);
+    if (item) {
+        item.name = newName;
+        item.bio = newBio;
+    } else {
+        console.log(`Item with ID ${id} not found.`);
+    }
+};
+// teste
+updateBioAndName(3, "Agleice Sousa", "Este é um teste!");
+console.log(lista);
