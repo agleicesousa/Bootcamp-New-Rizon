@@ -13,14 +13,19 @@ let lista: Item[] = [
     { id: 4, name: "Nicolau Copérnico", bio: "Astrônomo que desenvolveu a teoria heliocêntrica." }
 ];
 
-// ========================== RESULTADO VIA CONSOLE ========================
-
 //Função que retorna o nome do ID passado
-const getNameById = (id: number): string | undefined => {
-    return lista.find(item => item.id === id)?.name;
+function exibirBio(): void {
+    const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+
+    if (isNaN(id)) {
+        resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+        return;
+    };
+
+    const item = lista.find(item => item.id === id);
+    resultadoDiv.innerText = item ? `Biografia: ${item.bio}` : 'Nenhuma biografia encontrada para este ID.';
 };
-// Teste
-console.log(getNameById(1));
 
 
 // Função que retorna a bio do ID passado
@@ -58,5 +63,3 @@ const deleteItemById = (id: number): void => {
 // Teste
 deleteItemById(4);
 console.log(lista);
-
-// ====================== RESULTADO NO HTML?? ==================
