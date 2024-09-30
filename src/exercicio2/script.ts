@@ -13,7 +13,8 @@ let lista: Item[] = [
     { id: 4, name: "Nicolau Copérnico", bio: "Astrônomo que desenvolveu a teoria heliocêntrica." }
 ];
 
-//Função que retorna o nome do ID passado
+
+//Função que retorna a bio do ID passado
 function exibirBio(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
     const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
@@ -28,12 +29,19 @@ function exibirBio(): void {
 };
 
 
-// Função que retorna a bio do ID passado
-const getBioById = (id: number): string | undefined => {
-    return lista.find(item => item.id === id)?.bio;
+// Função que retorna o nome do ID passado
+function exibirNome(): void {
+    const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+
+    if (isNaN(id)) {
+        resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+        return;
+    };
+
+    const item = lista.find(item => item.id === id);
+    resultadoDiv.innerText = item ? `Nome: ${item.name}` : 'Nenhum nome encontrado para este ID.';
 };
-// Teste
-console.log(getBioById(2));
 
 
 // Função para atualizar bio e nome pelo ID passado
