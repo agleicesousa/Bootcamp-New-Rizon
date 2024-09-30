@@ -13,7 +13,7 @@ let lista: Item[] = [
     { id: 4, name: "Nicolau Copérnico", bio: "Astrônomo que desenvolveu a teoria heliocêntrica." }
 ];
 
-// ========================== VIA CONSOLE ========================
+// ========================== RESULTADO VIA CONSOLE ========================
 
 //Função que retorna o nome do ID passado
 const getNameById = (id: number): string | undefined => {
@@ -39,8 +39,22 @@ const updateBioAndName = (id: number, newName: string, newBio: string): void => 
         item.bio = newBio;
     } else {
         console.log(`Item with ID ${id} not found.`);
-    }
+    };
 };
 // teste
 updateBioAndName(3, "Agleice Sousa", "Este é um teste!");
+console.log(lista);
+
+
+// Função para deletar item por ID
+const deleteItemById = (id: number): void => {
+    const index = lista.findIndex(item => item.id === id);
+    if (index !== -1) {
+        lista.splice(index, 1);
+    } else {
+        console.log(`Item with ID ${id} not found.`);
+    };
+};
+// Teste
+deleteItemById(4);
 console.log(lista);
