@@ -12,3 +12,12 @@ let lista: Item[] = [
     { id: 3, name: "Nikola Tesla", bio: "Inventor e engenheiro conhecido por suas contribuições à eletricidade." },
     { id: 4, name: "Nicolau Copérnico", bio: "Astrônomo que desenvolveu a teoria heliocêntrica." }
 ];
+
+// ========================== VIA CONSOLE ========================
+
+//Função que retorna o nome do ID passado
+const getNameById = (id: number): string | undefined => {
+    return lista.find(item => item.id === id)?.name;
+};
+// Teste
+console.log(getNameById(1));
