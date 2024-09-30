@@ -54,4 +54,28 @@ function renderLista(): void {
         li.innerText = `${item.id}. ${item.name}: ${item.bio}`;
         listaUl.appendChild(li);
     });
-}
+};
+
+
+// Função para atualizar um item com base no ID fornecido
+function atualizarItem(): void {
+    const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+    const newName = (document.getElementById('newName') as HTMLInputElement).value.trim();
+    const newBio = (document.getElementById('newBio') as HTMLInputElement).value.trim();
+    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
+
+    if (isNaN(id) || (!newName && !newBio)) {
+        resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
+        return;
+    };
+
+    const item = lista.find(item => item.id === id);
+    if (item) {
+        if (newName) item.name = newName;
+        if (newBio) item.bio = newBio;
+        resultadoDiv.innerText = `Item com ID ${id} foi atualizado.`;
+        renderLista();
+    } else {
+        resultadoDiv.innerText = 'Item não encontrado.';
+    };
+};
