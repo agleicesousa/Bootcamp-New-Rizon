@@ -14,7 +14,7 @@ let lista: Item[] = [
 ];
 
 
-//Função que retorna a bio do ID passado
+// Função que retorna a bio do ID passado
 function exibirBio(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
     const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
@@ -55,9 +55,6 @@ function renderLista(): void {
         listaUl.appendChild(li);
     });
 };
-
-// Renderiza a lista na inicialização
-document.addEventListener('DOMContentLoaded', renderLista);
 
 
 // Função para atualizar um item com base no ID fornecido
@@ -103,3 +100,6 @@ function deletarItem(): void {
         resultadoDiv.innerText = 'Item não encontrado.';
     };
 };
+
+// Renderiza a lista na inicialização
+document.addEventListener('DOMContentLoaded', renderLista);
