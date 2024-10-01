@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', renderLista);
 // Função para atualizar um item com base no ID fornecido
 function atualizarItem(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-    const newName = (document.getElementById('newName') as HTMLInputElement).value.trim();
-    const newBio = (document.getElementById('newBio') as HTMLInputElement).value.trim();
+    const newName = (document.getElementById('novoNome') as HTMLInputElement).value.trim();
+    const newBio = (document.getElementById('novaBio') as HTMLInputElement).value.trim();
     const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
 
     if (isNaN(id) || (!newName && !newBio)) {

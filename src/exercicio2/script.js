@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', renderLista);
 // Função para atualizar um item com base no ID fornecido
 function atualizarItem() {
     var id = parseInt(document.getElementById('id').value);
-    var newName = document.getElementById('newName').value.trim();
-    var newBio = document.getElementById('newBio').value.trim();
-    var resultadoDiv = document.getElementById('resultado2');
+    var newName = document.getElementById('novoNome').value.trim();
+    var newBio = document.getElementById('novaBio').value.trim();
+    var resultadoDiv = document.getElementById('resultado');
     if (isNaN(id) || (!newName && !newBio)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
         return;
@@ -74,7 +74,7 @@ function atualizarItem() {
 // Função para deletar um item com base no ID fornecido
 function deletarItem() {
     var id = parseInt(document.getElementById('id').value);
-    var resultadoDiv = document.getElementById('resultado2');
+    var resultadoDiv = document.getElementById('resultado');
     if (isNaN(id)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido.';
         return;
