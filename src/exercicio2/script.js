@@ -42,3 +42,53 @@ function renderLista() {
         listaUl.appendChild(li);
     });
 }
+;
+// Renderiza a lista na inicialização
+document.addEventListener('DOMContentLoaded', renderLista);
+// Função para atualizar um item com base no ID fornecido
+function atualizarItem() {
+    var id = parseInt(document.getElementById('id').value);
+    var newName = document.getElementById('newName').value.trim();
+    var newBio = document.getElementById('newBio').value.trim();
+    var resultadoDiv = document.getElementById('resultado2');
+    if (isNaN(id) || (!newName && !newBio)) {
+        resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
+        return;
+    }
+    ;
+    var item = lista.find(function (item) { return item.id === id; });
+    if (item) {
+        if (newName)
+            item.name = newName;
+        if (newBio)
+            item.bio = newBio;
+        resultadoDiv.innerText = "Item com ID ".concat(id, " foi atualizado.");
+        renderLista();
+    }
+    else {
+        resultadoDiv.innerText = 'Item não encontrado.';
+    }
+    ;
+}
+;
+// Função para deletar um item com base no ID fornecido
+function deletarItem() {
+    var id = parseInt(document.getElementById('id').value);
+    var resultadoDiv = document.getElementById('resultado2');
+    if (isNaN(id)) {
+        resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+        return;
+    }
+    ;
+    var index = lista.findIndex(function (item) { return item.id === id; });
+    if (index !== -1) {
+        lista.splice(index, 1);
+        resultadoDiv.innerText = "Item com ID ".concat(id, " foi deletado.");
+        renderLista();
+    }
+    else {
+        resultadoDiv.innerText = 'Item não encontrado.';
+    }
+    ;
+}
+;

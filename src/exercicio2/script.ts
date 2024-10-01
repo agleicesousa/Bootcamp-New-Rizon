@@ -56,6 +56,9 @@ function renderLista(): void {
     });
 };
 
+// Renderiza a lista na inicialização
+document.addEventListener('DOMContentLoaded', renderLista);
+
 
 // Função para atualizar um item com base no ID fornecido
 function atualizarItem(): void {
@@ -74,6 +77,27 @@ function atualizarItem(): void {
         if (newName) item.name = newName;
         if (newBio) item.bio = newBio;
         resultadoDiv.innerText = `Item com ID ${id} foi atualizado.`;
+        renderLista();
+    } else {
+        resultadoDiv.innerText = 'Item não encontrado.';
+    };
+};
+
+
+// Função para deletar um item com base no ID fornecido
+function deletarItem(): void {
+    const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
+
+    if (isNaN(id)) {
+        resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+        return;
+    };
+
+    const index = lista.findIndex(item => item.id === id);
+    if (index !== -1) {
+        lista.splice(index, 1);
+        resultadoDiv.innerText = `Item com ID ${id} foi deletado.`;
         renderLista();
     } else {
         resultadoDiv.innerText = 'Item não encontrado.';
