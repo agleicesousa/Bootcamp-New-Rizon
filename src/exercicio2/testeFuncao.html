@@ -3,32 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Exercicio 2</title>
+        <title>Exercicio 2 - Biografias</title>
     </head>
     <body>
         <main>
             <h2>Operações de Biografia</h2>
             <div>
-                <label for="">Digite o ID:</label>
-                <input type="number" placeholder="ID da pessoa" />
+                <label for="id">Digite o ID:</label>
+                <input type="number" id="id" placeholder="ID da pessoa" />
+                <button onclick="exibirBio()">Exibir Bio</button>
+                <button onclick="exibirNome()">Exibir Nome</button>
+                <button onclick="deletarItem()">Deletar Item</button>
+                <button onclick="atualizarItem()">Atualizar Item</button>
             </div>
             <div>
-                <label for="">Novo Nome:</label>
-                <input type="text" placeholder="Nome completo" />
+                <label for="novoNome">Novo Nome:</label>
+                <input type="text" id="novoNome" placeholder="Nome completo" />
             </div>
             <div>
-                <label for="">Nova Bio:</label>
-                <input type="text" placeholder="Breve biografia" />
+                <label for="novaBio">Nova Bio:</label>
+                <input type="text" id="novaBio" placeholder="Breve biografia" />
             </div>
-            <hr>
-            <div>
-                <button>Exibir Bio</button>
-                <button>Exibir Nome</button>
-                <button>Atualizar Item</button>
-                <button>Deletar Item</button>
-            </div>
-            <br>
-            <div>O resultado será exibido aqui</div>
+            <div id="resultado"></div>
+            <h3>Lista de Biografias</h3>
+            <ul id="listaPessoas"></ul>
         </main>
+
+        <script src="./script.js"></script>
     </body>
 </html>
