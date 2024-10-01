@@ -65,7 +65,7 @@ function atualizarItem(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
     const newName = (document.getElementById('newName') as HTMLInputElement).value.trim();
     const newBio = (document.getElementById('newBio') as HTMLInputElement).value.trim();
-    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
+    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
 
     if (isNaN(id) || (!newName && !newBio)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
@@ -87,7 +87,7 @@ function atualizarItem(): void {
 // Função para deletar um item com base no ID fornecido
 function deletarItem(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
+    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
 
     if (isNaN(id)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido.';
