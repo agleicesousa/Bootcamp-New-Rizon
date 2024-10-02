@@ -1,0 +1,27 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore arquivos de saída do TypeScript
+dist/
+
+# Ignore arquivos de log
+*.log
+
+# Ignore arquivos temporários
+*.tmp
+
+# Ignore arquivos de configuração do editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore arquivos de compilação
+*.js
+*.js.map
+
+# Ignore arquivos de teste
+*.spec.ts
+
+# Ignore ambiente local
+.env

@@ -1,13 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Histórico de Commits</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Respostas e Histórico de Commits</h1>
+    </header>
+
     <main>
-        <h1>Olá mundo!</h1>
+        <section id="funcaoExplained">
+            <h2>Testes e explicações</h2>
+            <p>Para testar cada função e ver algumas explicações, acesse a página <a href="funcoes.html">Teste e explicações</a>.</p>
+        </section>
+
+        <section>
+            <form id="respostaCommit">
+                <label for="resposta">Digite sua resposta:</label>
+                <input type="text" id="resposta" name="resposta" required>
+                <button type="submit">Enviar Resposta</button>
+            </form>
+        </section>
+
+        <section id="commitHistory">
+            <h2>Histórico de Commits</h2>
+            <ul id="listaCommits"></ul>
+        </section>
     </main>
+
+    <script src="/src/exercicio3/script.js"></script>
 </body>
 </html>
