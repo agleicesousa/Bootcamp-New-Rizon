@@ -21,10 +21,10 @@ interface Commit {
     };
 }
 
-// Função assíncrona para obter os commits de um repositório
-async function obterCommits(): Promise<void> {
+// Função assíncrona para obter os commits de um repositório com paginação
+async function obterCommits(page: number = 1, per_page: number = 100): Promise<void> {
     try {
-        const response = await fetch('https://api.github.com/repos/agleicesousa/bootcamp-new-horizon/commits');
+        const response = await fetch(`https://api.github.com/repos/agleicesousa/bootcamp-new-horizon/commits?page=${page}&per_page=${per_page}`);
         
         if (!response.ok) {
             throw new Error('Erro ao buscar commits');
@@ -32,13 +32,21 @@ async function obterCommits(): Promise<void> {
 
         const commits: Commit[] = await response.json();
         const listaCommits = document.getElementById('listaCommits') as HTMLUListElement;
-        listaCommits.innerHTML = '';
+        
+        if (page === 1) {
+            listaCommits.innerHTML = '';
+        };
 
         commits.forEach(commit => {
             const itemLista = document.createElement('li');
             itemLista.textContent = `Commit: ${commit.commit.message} - Autor: ${commit.commit.author.name}`;
             listaCommits.appendChild(itemLista);
         });
+
+        // Checa se ainda há mais commits para buscar
+        if (commits.length === per_page) {
+            await obterCommits(page + 1, per_page);
+        };
 
     } catch (error) {
         console.error('Erro ao obter commits:', error);
