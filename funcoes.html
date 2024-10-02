@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explicação e testes</title>
+    </head>
+    <body>
+        <header>
+            <h1>Exercícios de nivelamento</h1>
+            <p>New Rizon Bootcamp</p>
+        </header>
+
+        <main>
+            <section>
+                <fieldset>
+                    <h4>1 - Criar uma função que retorne a quantidade de vogais da palavra passada:</h4>
+                    <p>Criei uma função principal chamada <code>contarVogais</code> que recebe uma string como parâmetro e retorna a quantidade de vogais presentes na palavra. Usei a string de caracteres vogais "aeiouAEIOU" para verificar se cada letra é uma vogal.</p>
+<pre>
+    <code>
+        function contarVogais(palavra: string): number {
+            const vogais = "aeiouAEIOU";
+            return Array.from(palavra).filter(letra => vogais.includes(letra)).length;
+        };
+    </code>
+</pre>
+
+                    <h4>a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função:</h4>
+                    <p>Utilizei a palavra "exemplo" para testar a função. Como resultado, a função retornou 3 vogais.</p>
+<pre>
+    <code>
+        const palavra = "exemplo";
+        const quantidadeVogais = contarVogais(palavra);
+        // Teste
+        console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
+    </code>
+</pre>
+
+                    <h4>b) Dar um exemplo de uso com uma palavra recebida via input no formulário:</h4>
+                    <p>Criei uma função chamada <code>mostrarResultado</code> que recebe as informações do <code>input</code> que recebe a classe <code>palavra</code>, aonde retorna a quantidade de vogais da mesma. Caso o usuário não escrever nada no campo de texto e clicar no botão que recebe o valor <code>resultado</code>, aparacerá uma mensagem pedindo que escreva algo.</p>
+<pre>
+    <code>
+        function mostrarResultado(): void {
+            const palavraInput = (getElementoPorId('palavra') as HTMLInputElement)?.value.trim();
+            const resultadoDiv = getElementoPorId('resultado');
+        
+            if (!palavraInput) {
+                atualizarResultado(resultadoDiv, 'Por favor, digite uma palavra.');
+                return;
+            };
+        
+            const resultado = contarVogais(palavraInput);
+            atualizarResultado(resultadoDiv, `A palavra '${palavraInput}' tem ${resultado} vogais.`);
+        };
+    </code>
+</pre>
+
+                    <fieldset>
+                        <h4>Testando a Função via HTML</h4>
+                        <div>
+                            <p>Digite uma palavra abaixo e clique no botão para contar as
+                                vogais:</p>
+                            <input type="text" id="palavra" placeholder="Digite uma palavra">
+                            <button id="contarBtn">Contar Vogais</button>
+                            <div id="resultado"></div>
+                        </div>
+                    </fieldset>
+                </fieldset>
+            </section>
+            
+            <section>
+                <fieldset>
+                    <h4>2 - Dado o array:</h4>
+<pre>
+    <code>
+        let lista: Item[] = [
+        { id: 1, name: "Ada Lovelace", bio: "Matemática e escritora inglesa, pioneira em algoritmos." },
+        { id: 2, name: "Alan Turing", bio: "Pai da ciência da computação e da inteligência artificial." },
+        { id: 3, name: "Nikola Tesla", bio: "Inventor e engenheiro conhecido por suas contribuições à eletricidade." },
+        { id: 4, name: "Nicolau Copérnico", bio: "Astrônomo que desenvolveu a teoria heliocêntrica." }
+    ];
+    </code>
+</pre>
+
+                    <h4>a) Crie uma função que retorne a bio do id passado</h4>
+                    <p>A função <code>exibirBio</code> busca na lista de itens a biografia do usuário. Se o ID não for válido, a função exibe uma mensagem de que o ID não é válido. Se encontrar o item, ela vai mostrar a história dele.</p>
+<pre>
+    <code>
+        function exibirBio(): void {
+            const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+        
+            if (isNaN(id)) {
+                resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+                return;
+            };
+        
+            const item = lista.find(item => item.id === id);
+            resultadoDiv.innerText = item ? `Biografia: ${item.bio}` : 'Nenhuma biografia encontrada para este ID.';
+        };
+    </code>
+</pre>
+
+                    <h4>b) Crie uma função que retorne o nome do id passado</h4>
+                    <p>É parecida com a <code>exibiçãoBio</code>, mas em vez de mostrar a biografia, mostra o nome do item correspondente ao ID. Se o número do usuário não for encontrado ou estiver errado, a função avisa que o número não existe.</p>
+<pre>
+    <code>
+        function exibirNome(): void {
+            const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+        
+            if (isNaN(id)) {
+                resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+                return;
+            };
+        
+            const item = lista.find(item => item.id === id);
+            resultadoDiv.innerText = item ? `Nome: ${item.name}` : 'Nenhum nome encontrado para este ID.';
+        };
+    </code>
+</pre>
+
+                    <h4>c) Crie uma função que apague um item da lista a partir de um id passado</h4>
+                    <p>Essa função tenta remover o item correspondente. Se o ID for válido, a função usa splice para excluir o item e atualizar a página. Se o ID não for encontrado ou inválido, ela avisa que não existe. A função atualiza a lista se houver alterações.</p>
+<pre>
+    <code>
+        function deletarItem(): void {
+            const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+        
+            if (isNaN(id)) {
+                resultadoDiv.innerText = 'Por favor, digite um ID válido.';
+                return;
+            };
+        
+            const index = lista.findIndex(item => item.id === id);
+            if (index !== -1) {
+                lista.splice(index, 1);
+                resultadoDiv.innerText = `Item com ID ${id} foi deletado.`;
+                renderLista();
+            } else {
+                resultadoDiv.innerText = 'Item não encontrado.';
+            };
+        };
+    </code>
+</pre>
+
+                    <h4>d) Crie uma função que altere a bio ou o name a partir de um id passado</h4>
+                    <p>Essa função muda os dados de um item. Ela recebe o ID, nome e biografia e atualiza o item. Se você quiser mudar apenas um dos campos (nome ou biografia), pode fazer isso, mas só o campo que foi preenchido será mudado. Se ambos os campos forem atualizados, a função atualiza ambos os campos. Se o ID não estiver correto, a função avisa que o item não foi encontrado.</p>
+                    
+<pre>
+    <code>
+        function atualizarItem(): void {
+            const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
+            const newName = (document.getElementById('novoNome') as HTMLInputElement).value.trim();
+            const newBio = (document.getElementById('novaBio') as HTMLInputElement).value.trim();
+            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+        
+            if (isNaN(id) || (!newName && !newBio)) {
+                resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
+                return;
+            };
+        
+            const item = lista.find(item => item.id === id);
+            if (item) {
+                if (newName) item.name = newName;
+                if (newBio) item.bio = newBio;
+                resultadoDiv.innerText = `Item com ID ${id} foi atualizado.`;
+                renderLista();
+            } else {
+                resultadoDiv.innerText = 'Item não encontrado.';
+            };
+        };
+    </code>
+</pre>
+
+                <fieldset>
+                    <h2>Testando a Função via HTML</h2>
+                    <div>
+                        <label for="id">Digite o ID:</label>
+                        <input type="number" id="id" placeholder="ID da pessoa" />
+                        <button onclick="exibirBio()">Exibir Bio</button>
+                        <button onclick="exibirNome()">Exibir Nome</button>
+                        <button onclick="deletarItem()">Deletar Item</button>
+                        <button onclick="atualizarItem()">Atualizar Item</button>
+                    </div>
+                    <div>
+                        <label for="novoNome">Novo Nome:</label>
+                        <input type="text" id="novoNome" placeholder="Nome completo" />
+                    </div>
+                    <div>
+                        <label for="novaBio">Nova Bio:</label>
+                        <input type="text" id="novaBio" placeholder="Breve biografia" />
+                    </div>
+                    <div id="resultado"></div>
+                    <h3>Lista de Biografias</h3>
+                    <ul id="listaPessoas"></ul>
+                </fieldset>
+            </section>
+        </main>
+
+        <footer>
+            <p>Agleice Sousa. Todos os direitos reservados &copy; 2024</p>
+            <a href="https://www.linkedin.com/in/agleice-sousa/">LinkedIn</a>  |  <a href="https://github.com/agleicesousa">GitHub</a>
+        </footer>
+        <script src="./src/exercicio1/script.js"></script>
+        <script src="./src/exercicio2/script.js"></script>
+    </body>
+</html>
