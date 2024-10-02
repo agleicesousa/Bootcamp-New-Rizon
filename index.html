@@ -15,10 +15,53 @@
             <section>
                 <fieldset>
                     <h4>1 - Criar uma função que retorne a quantidade de vogais da palavra passada.</h4>
-                    
+<pre>
+    <code>
+        function contarVogais(palavra: string): number {
+            const vogais = "aeiouAEIOU";
+            return Array.from(palavra).filter(letra => vogais.includes(letra)).length;
+        };
+    </code>
+</pre>
+
                     <h4>a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função.</h4>
+<pre>
+    <code>
+        const palavra = "exemplo";
+        const quantidadeVogais = contarVogais(palavra);
+        // Teste
+        console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
+    </code>
+</pre>
 
                     <h4>b) Dar um exemplo de uso com uma palavra recebida via input no formulário.</h4>
+<pre>
+    <code>
+        function mostrarResultado(): void {
+            const palavraInput = (getElementoPorId('palavra') as HTMLInputElement)?.value.trim();
+            const resultadoDiv = getElementoPorId('resultado');
+        
+            if (!palavraInput) {
+                atualizarResultado(resultadoDiv, 'Por favor, digite uma palavra.');
+                return;
+            };
+        
+            const resultado = contarVogais(palavraInput);
+            atualizarResultado(resultadoDiv, `A palavra '${palavraInput}' tem ${resultado} vogais.`);
+        };
+    </code>
+</pre>
+
+                    <fieldset>
+                        <h4>Testando a Função</h4>
+                        <div>
+                            <p>Digite uma palavra abaixo e clique no botão para contar as
+                                vogais:</p>
+                            <input type="text" id="palavra" placeholder="Digite uma palavra">
+                            <button id="contarBtn">Contar Vogais</button>
+                            <div id="resultado"></div>
+                        </div>
+                    </fieldset>
                 </fieldset>
             </section>
             
