@@ -2,7 +2,7 @@
 node_modules/
 
 # Ignore arquivos de saída do TypeScript
-dist/
+# dist/
 
 # Ignore arquivos de log
 *.log
@@ -17,8 +17,8 @@ dist/
 *.sublime-workspace
 
 # Ignore arquivos de compilação
-*.js
-*.js.map
+# *.js
+# *.js.map
 
 # Ignore arquivos de teste
 *.spec.ts
