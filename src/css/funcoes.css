@@ -171,3 +171,23 @@ button {
 .lista-biografias li:hover {
     background: #dcdcdc;
 }
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    padding: 20px 0;
+    background: #003366;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.link-rede-social {
+    color: #fff;
+    text-decoration: none;
+}
+
+.link-rede-social:hover {
+    text-decoration: underline;
+}
