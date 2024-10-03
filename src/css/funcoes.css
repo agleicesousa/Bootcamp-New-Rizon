@@ -11,7 +11,7 @@ body {
 }
 
 /* Cabeçalho */
-.cabeçalho {
+.cabecalho {
     background: #003366;
     color: #fff;
     padding: 5px 0;
@@ -29,3 +29,33 @@ body {
 }
 
 /* Exercícios */
+.exercicio {
+    margin-bottom: 30px;
+}
+
+.item-exercicio {
+    background: #fafafa;
+    border: 1px solid #dcdcdc;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.item-exercicio:hover {
+    background: #e9ecef;
+}
+
+pre {
+    background: #f7f7f7;
+    border-left: 4px solid #003366;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+h4 {
+    margin: 0 0 10px;
+    color: #333;
+}
