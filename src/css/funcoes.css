@@ -78,3 +78,19 @@ h4 {
     margin-bottom: 5px;
     font-weight: bold;
 }
+
+/* inputs gerias */
+input[type="text"], input[type=number] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    transition: border 0.3s ease;
+    width: calc(100% - 22px);
+}
+
+input[type="text"], input[type=number]:focus {
+    border-color: #003366;
+    outline: none;
+}
+
+/* botões geais */
