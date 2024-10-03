@@ -22,7 +22,9 @@ function exibirBio() {
     else {
         resultadoDiv.innerText = 'Nenhuma biografia encontrada para este ID.';
     }
+    ;
 }
+;
 // Função que retorna o nome do ID passado
 function exibirNome() {
     const id = parseInt(document.getElementById('id').value);
@@ -31,6 +33,7 @@ function exibirNome() {
         resultadoDiv.innerText = 'Por favor, digite um ID válido.';
         return;
     }
+    ;
     const item = lista.find(item => item.id === id);
     if (item) {
         resultadoDiv.innerText = `Nome: ${item.name}`;
@@ -38,7 +41,9 @@ function exibirNome() {
     else {
         resultadoDiv.innerText = 'Nenhum nome encontrado para este ID.';
     }
+    ;
 }
+;
 // Função para renderizar a lista de biografias na página
 function renderLista() {
     const listaUl = document.getElementById('listaPessoas');

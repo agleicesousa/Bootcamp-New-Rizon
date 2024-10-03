@@ -44,4 +44,7 @@ function atualizarResultado(elemento: HTMLElement | null, mensagem: string): voi
 
 // Adiciona o evento de clique ao botão do formulário
 const botaoContar = getElementoPorId('contarBtn');
-botaoContar?.addEventListener('click', mostrarResultado);
+botaoContar?.addEventListener('click', function(event) {
+    event.preventDefault()
+    mostrarResultado();
+});
