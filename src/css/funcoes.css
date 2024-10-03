@@ -59,3 +59,22 @@ h4 {
     margin: 0 0 10px;
     color: #333;
 }
+
+/* Formulário de teste */
+.teste-funcao {
+    background: #fafafa;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.campo-form {
+    margin-bottom: 15px;
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
