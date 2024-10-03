@@ -88,15 +88,19 @@
     <code>
         function exibirBio(): void {
             const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+            const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
         
             if (isNaN(id)) {
                 resultadoDiv.innerText = 'Por favor, digite um ID válido.';
                 return;
-            };
+            }
         
             const item = lista.find(item => item.id === id);
-            resultadoDiv.innerText = item ? `Biografia: ${item.bio}` : 'Nenhuma biografia encontrada para este ID.';
+            if (item) {
+                resultadoDiv.innerText = `Biografia: ${item.bio}`;
+            } else {
+                resultadoDiv.innerText = 'Nenhuma biografia encontrada para este ID.';
+            };
         };
     </code>
 </pre>
@@ -107,7 +111,7 @@
     <code>
         function exibirNome(): void {
             const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+            const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
         
             if (isNaN(id)) {
                 resultadoDiv.innerText = 'Por favor, digite um ID válido.';
@@ -115,7 +119,11 @@
             };
         
             const item = lista.find(item => item.id === id);
-            resultadoDiv.innerText = item ? `Nome: ${item.name}` : 'Nenhum nome encontrado para este ID.';
+            if (item) {
+                resultadoDiv.innerText = `Nome: ${item.name}`;
+            } else {
+                resultadoDiv.innerText = 'Nenhum nome encontrado para este ID.';
+            };
         };
     </code>
 </pre>
@@ -126,7 +134,7 @@
     <code>
         function deletarItem(): void {
             const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+            const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
         
             if (isNaN(id)) {
                 resultadoDiv.innerText = 'Por favor, digite um ID válido.';
@@ -154,7 +162,7 @@
             const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
             const newName = (document.getElementById('novoNome') as HTMLInputElement).value.trim();
             const newBio = (document.getElementById('novaBio') as HTMLInputElement).value.trim();
-            const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+            const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
         
             if (isNaN(id) || (!newName && !newBio)) {
                 resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
@@ -192,7 +200,7 @@
                         <label for="novaBio">Nova Bio:</label>
                         <input type="text" id="novaBio" placeholder="Breve biografia" />
                     </div>
-                    <div id="resultado"></div>
+                    <div id="resultado2"></div>
                     <h3>Lista de Biografias</h3>
                     <ul id="listaPessoas"></ul>
                 </fieldset>
@@ -203,7 +211,7 @@
             <p>Agleice Sousa. Todos os direitos reservados &copy; 2024</p>
             <a href="https://www.linkedin.com/in/agleice-sousa/">LinkedIn</a>  |  <a href="https://github.com/agleicesousa">GitHub</a>
         </footer>
-        <script src="./src/exercicio1/script.js"></script>
-        <script src="./src/exercicio2/script.js"></script>
+        <script src="./dist/exercicio1/script.js"></script>
+        <script src="./dist/exercicio2/script.js"></script>
     </body>
 </html>

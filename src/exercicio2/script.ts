@@ -17,22 +17,26 @@ let lista: Item[] = [
 // Função que retorna a bio do ID passado
 function exibirBio(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
 
     if (isNaN(id)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido.';
         return;
-    };
+    }
 
     const item = lista.find(item => item.id === id);
-    resultadoDiv.innerText = item ? `Biografia: ${item.bio}` : 'Nenhuma biografia encontrada para este ID.';
+    if (item) {
+        resultadoDiv.innerText = `Biografia: ${item.bio}`;
+    } else {
+        resultadoDiv.innerText = 'Nenhuma biografia encontrada para este ID.';
+    };
 };
 
 
 // Função que retorna o nome do ID passado
 function exibirNome(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
 
     if (isNaN(id)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido.';
@@ -40,7 +44,11 @@ function exibirNome(): void {
     };
 
     const item = lista.find(item => item.id === id);
-    resultadoDiv.innerText = item ? `Nome: ${item.name}` : 'Nenhum nome encontrado para este ID.';
+    if (item) {
+        resultadoDiv.innerText = `Nome: ${item.name}`;
+    } else {
+        resultadoDiv.innerText = 'Nenhum nome encontrado para este ID.';
+    };
 };
 
 
@@ -62,7 +70,7 @@ function atualizarItem(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
     const newName = (document.getElementById('novoNome') as HTMLInputElement).value.trim();
     const newBio = (document.getElementById('novaBio') as HTMLInputElement).value.trim();
-    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
 
     if (isNaN(id) || (!newName && !newBio)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido e pelo menos um campo para atualizar.';
@@ -84,7 +92,7 @@ function atualizarItem(): void {
 // Função para deletar um item com base no ID fornecido
 function deletarItem(): void {
     const id = parseInt((document.getElementById('id') as HTMLInputElement).value);
-    const resultadoDiv = document.getElementById('resultado') as HTMLDivElement;
+    const resultadoDiv = document.getElementById('resultado2') as HTMLDivElement;
 
     if (isNaN(id)) {
         resultadoDiv.innerText = 'Por favor, digite um ID válido.';
