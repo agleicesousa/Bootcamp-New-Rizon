@@ -7,16 +7,14 @@
     <title>Explicação e testes</title>
 </head>
 <body>
-    <header class="cabecalho">
-        <div class="titulo-container">
-            <h1>Explicação e testes</h1>
-        </div>
+    <header>
+        <h1>Explicação e testes</h1>
     </header>
 
-    <main class="conteudo-principal">
-        <section class="exercicio">
-            <article class="item-exercicio">
-                <h4>1 - Criar uma função que retorne a quantidade de vogais da palavra passada:</h4>
+    <main>
+        <section>
+            <article>
+            <h4>1 - Criar uma função que retorne a quantidade de vogais da palavra passada:</h4>
                 <p>Criei uma função principal chamada <b>contarVogais</b> que recebe uma string como parâmetro e retorna a quantidade de vogais presentes na palavra. Usei a string de caracteres vogais "aeiouAEIOU" para verificar se cada letra é uma vogal.</p>
                 <pre><code>
 function contarVogais(palavra: string): number {
@@ -26,8 +24,8 @@ function contarVogais(palavra: string): number {
                 </code></pre>
             </article>
 
-            <article class="item-exercicio">
-                <h4>a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função:</h4>
+            <article>
+            <h4>a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função:</h4>
                 <p>Utilizei a palavra "exemplo" para testar a função. Como resultado, a função retornou 3 vogais.</p>
                 <pre><code>
 const palavra = "exemplo";
@@ -37,7 +35,7 @@ console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
                 </code></pre>
             </article>
 
-            <article class="item-exercicio">
+            <article>
                 <h4>b) Dar um exemplo de uso com uma palavra recebida via input no formulário:</h4>
                 <p>Criei uma função chamada <b>mostrarResultado</b> que recebe as informações do <b>input</b> que recebe a classe <b>palavra</b>, onde retorna a quantidade de vogais da mesma. Caso o usuário não escreva nada no campo de texto e clique no botão que recebe o valor <b>resultado</b>, aparecerá uma mensagem pedindo que escreva algo.</p>
                 <pre><code>
@@ -56,7 +54,7 @@ function mostrarResultado(): void {
                 </code></pre>
             </article>
 
-            <fieldset class="teste-funcao">
+            <fieldset>
                 <h4>Testando a Função via HTML</h4>
                 <form>
                     <p>Digite uma palavra abaixo e clique no botão para contar as vogais:</p>
@@ -70,8 +68,8 @@ function mostrarResultado(): void {
             </fieldset>
         </section>
 
-        <section class="exercicio">
-            <article class="item-exercicio">
+        <section>
+            <article>
                 <h4>2 - Dado o array:</h4>
                 <pre><code>
 let lista: Item[] = [
@@ -83,7 +81,7 @@ let lista: Item[] = [
                 </code></pre>
             </article>
 
-            <article class="item-exercicio">
+            <article>
                 <h4>a) Crie uma função que retorne a bio do id passado</h4>
                 <p>A função <b>exibirBio</b> busca na lista de itens a biografia do usuário. Se o ID não for válido, a função exibe uma mensagem de que o ID não é válido. Se encontrar o item, ela vai mostrar a história dele.</p>
                 <pre><code>
@@ -106,7 +104,7 @@ function exibirBio(): void {
                 </code></pre>
             </article>
 
-            <article class="item-exercicio">
+            <article>
                 <h4>b) Crie uma função que retorne o nome do id passado</h4>
                 <p>É parecida com a <b>exibiçãoBio</b>, mas em vez de mostrar a biografia, mostra o nome do item correspondente ao ID. Se o número do usuário não for encontrado ou estiver errado, a função avisa que o número não existe.</p>
                 <pre><code>
@@ -129,7 +127,7 @@ function exibirNome(): void {
                 </code></pre>
             </article>
 
-            <article class="item-exercicio">
+            <article>
                 <h4>c) Crie uma função que apague um item da lista a partir de um id passado</h4>
                 <p>Essa função tenta remover o item correspondente. Se o ID for válido, a função usa splice para excluir o item e atualizar a página. Se o ID não for encontrado ou inválido, ela avisa que não existe. A função atualiza a lista se houver alterações.</p>
                 <pre><code>
@@ -154,7 +152,7 @@ function deletarItem(): void {
                 </code></pre>
             </article>
 
-            <article class="item-exercicio">
+            <article>
                 <h4>d) Crie uma função que altere a bio ou o name a partir de um id passado</h4>
                 <p>Essa função muda os dados de um item. Ela recebe o ID, nome e biografia e atualiza o item. Se você quiser mudar apenas um dos campos (nome ou biografia), pode fazer isso, mas só o campo que foi preenchido será mudado. Se ambos os campos forem atualizados, a função atualiza ambos os campos. Se o ID não estiver correto, a função avisa que o item não foi encontrado.</p>
                 <pre><code>
@@ -182,7 +180,7 @@ function atualizarItem(): void {
                 </code></pre>
             </article>
 
-            <fieldset class="teste-funcao">
+            <fieldset>
                 <h2>Testando a Função via HTML</h2>
                 <form>
                     <div class="campo-form">
@@ -219,7 +217,7 @@ function atualizarItem(): void {
         </section>
     </main>
 
-    <footer class="rodape">
+    <footer>
         <p>Agleice Sousa. Todos os direitos reservados &copy; 2024</p>
         <a href="https://www.linkedin.com/in/agleice-sousa/" class="link-rede-social">LinkedIn</a> | 
         <a href="https://github.com/agleicesousa" class="link-rede-social">GitHub</a>

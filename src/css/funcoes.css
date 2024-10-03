@@ -1,49 +1,57 @@
-* {
+/* Estilização Global */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    line-height: 1.6;
     background-color: #f0f2f5;
 }
 
 /* Cabeçalho */
-.cabecalho {
+header {
     background: #003366;
     color: #fff;
-    padding: 5px 0;
+    padding: 15px 0;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Conteúdo principal */
-.conteudo-principal {
-    background-color: #fff;
-    padding: 20px;
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Conteúdo Principal */
+main {
     max-width: 80%;
-    margin: 0 auto;
-    border-radius: 8px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 /* Exercícios */
-.exercicio {
+section {
     margin-bottom: 30px;
 }
 
-.item-exercicio {
-    background: #fafafa;
-    border: 1px solid #dcdcdc;
+article {
+    margin-bottom: 20px;
     padding: 15px;
+    border: 1px solid #dcdcdc;
     border-radius: 5px;
+    background: #fafafa;
     transition: background 0.3s ease;
-    margin-bottom: 10px;
 }
 
-.item-exercicio:hover {
+article:hover {
     background: #e9ecef;
+}
+
+h4 {
+    margin: 0 0 10px;
+    color: #333;
 }
 
 pre {
@@ -55,17 +63,12 @@ pre {
     font-size: 1rem;
 }
 
-h4 {
-    margin: 0 0 10px;
-    color: #333;
-}
-
-/* Formulário de teste */
-.teste-funcao {
-    background: #fafafa;
-    padding: 20px;
+/* Formulário de Teste */
+fieldset {
     border: 1px solid #dcdcdc;
     border-radius: 5px;
+    padding: 20px;
+    background: #fafafa;
     margin-top: 20px;
 }
 
@@ -79,44 +82,35 @@ h4 {
     font-weight: bold;
 }
 
-/* inputs gerias */
-input[type="text"], input[type=number] {
+input[type="text"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 10px;
     transition: border 0.3s ease;
-    width: calc(100% - 22px);
 }
 
-input[type="text"], input[type=number]:focus {
+input[type="text"]:focus, input[type="number"]:focus {
     border-color: #003366;
     outline: none;
-}
-
-/* botões geais */
-button {
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 10px 15px;
-    margin-right: 10px;
-    color: #ffffff;
 }
 
 .botoes-container {
     margin-top: 15px;
 }
 
-.botao-contar {
-    background-color: #17a2b8;
-}
-
-.botao-contar:hover {
-    background-color: #138496;
+button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .botao-exibir {
     background-color: #28a745;
+    color: white;
 }
 
 .botao-exibir:hover {
@@ -125,35 +119,43 @@ button {
 
 .botao-deletar {
     background-color: #dc3545;
+    color: white;
 }
 
 .botao-deletar:hover {
-    background-color: #c62828;
+    background-color: #c82333;
 }
 
 .botao-atualizar {
     background-color: #007bff;
+    color: white;
 }
 
 .botao-atualizar:hover {
     background-color: #0069d9;
 }
 
-/* Resultado */
+.botao-contar {
+    background-color: #17a2b8;
+    color: white;
+    margin-top: 20px;
+}
+
+.botao-contar:hover {
+    background-color: #138496;
+}
+
 .resultado-container {
     margin-top: 20px;
-
 }
 
 .resultado {
-    background: #f7f7f7;
-    border: 2px solid #dcdcdc;
-    border-radius: 4px;
     padding: 10px;
-    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    background: #f7f7f7;
+    border-radius: 4px;
 }
 
-/* Lista de biografias */
 .lista-biografias {
     list-style-type: none;
     padding: 0;
@@ -161,10 +163,10 @@ button {
 
 .lista-biografias li {
     background: #e9ecef;
-    margin: 5px 0;
+    border-left: 4px solid #003366;
+    margin: 10px 0;
     padding: 10px;
     border-radius: 4px;
-    border-left: 4px solid #003366;
     transition: background 0.3s ease;
 }
 
@@ -173,7 +175,7 @@ button {
 }
 
 /* Rodapé */
-.rodape {
+footer {
     text-align: center;
     padding: 20px 0;
     background: #003366;
