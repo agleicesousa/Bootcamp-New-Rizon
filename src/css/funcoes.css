@@ -94,3 +94,47 @@ input[type="text"], input[type=number]:focus {
 }
 
 /* botões geais */
+button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.botoes-container {
+    margin-top: 15px;
+}
+
+.botao-contar {
+    background-color: #17a2b8;
+}
+
+.botao-contar:hover {
+    background-color: #138496;
+}
+
+.botao-exibir {
+    background-color: #28a745;
+}
+
+.botao-exibir:hover {
+    background-color: #218838;
+}
+
+.botao-deletar {
+    background-color: #dc3545;
+}
+
+.botao-deletar:hover {
+    background-color: #c62828;
+}
+
+.botao-atualizar {
+    background-color: #007bff;
+}
+
+.botao-atualizar:hover {
+    background-color: #0069d9;
+}
